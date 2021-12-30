@@ -1,0 +1,27 @@
+﻿<Window x:Class="Warehouse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Warehouse" Height="550" Width="880" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    <Grid>
+        <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="ConnectButton_Click"/>
+        <Button Name="CustomerButton" Content="Customers" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="CustomerButton_Click"/>
+        <Button Name="PlotButton" Content="Plot" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Top" Height="40" Width="200" FontSize="20" Click="PlotButton_Click"/>
+        <Button HorizontalAlignment="Left" Margin="600,0,0,0" VerticalAlignment="Top" Height="40" Width="274"/>
+
+        <DataGrid Name="ProductDataGrid" HorizontalAlignment="Left" Height="360" Width="420" Margin="10,110,0,0" VerticalAlignment="Top" MouseDoubleClick="ProductDataGrid_MouseDoubleClick" IsReadOnly="True" FontSize="20"/>
+        <Label Content="Available products in warehouse" HorizontalAlignment="Left" Margin="35,60,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button Name="AddProductButton" Content="Add Product" HorizontalAlignment="Left" Margin="10,470,0,0" VerticalAlignment="Top" Height="40" Width="210" FontSize="20" Click="AddProductButton_Click"/>
+        <Button Name="RemoveProductButton" Content="Remove Product" HorizontalAlignment="Left" Margin="220,470,0,0" VerticalAlignment="Top" Height="40" Width="210" FontSize="20" Click="RemoveProductButton_Click"/>
+
+
+
+        <DataGrid Name="OrderDataGrid" HorizontalAlignment="Left" Height="360" Width="420" Margin="440,110,0,0" VerticalAlignment="Top" IsReadOnly="True" FontSize="20" MouseDoubleClick="OrderDataGrid_MouseDoubleClick"/>
+        <Label Content="Pending orders" HorizontalAlignment="Left" Margin="565,60,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button Name="CreateOrderButton" Content="Create Order" HorizontalAlignment="Left" Margin="440,470,0,0" VerticalAlignment="Top" Height="40" Width="210" FontSize="20" Click="CreateOrderButton_Click"/>
+        <Button Name="DeleteOrderButton" Content="Delete Order" HorizontalAlignment="Left" Margin="650,470,0,0" VerticalAlignment="Top" Height="40" Width="210" FontSize="20" Click="DeleteOrderButton_Click"/>
+    </Grid>
+</Window>
