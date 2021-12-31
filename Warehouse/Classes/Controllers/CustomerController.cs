@@ -16,35 +16,9 @@ namespace Warehouse.Classes.Controllers
         {
             this.httpClient = httpClient;
         }
-        public List<Customer> Get()
+        public void Load()
         {
-            this.customers = new List<Customer>();
-
-            this.customers.Add(new Customer
-            {
-                Id = 1,
-                Name = "LandRover",
-                Address = "Nitra 94911",
-                PhoneNumber = "+421 901 222 485"
-            });
-            this.customers.Add(new Customer
-            {
-                Id = 2,
-                Name = "Volkswagen",
-                Address = "Bratislava 81104",
-                PhoneNumber = "+421 912 456 054"
-            });
-            this.customers.Add(new Customer
-            {
-                Id = 3,
-                Name = "Kia",
-                Address = "Zilina 01008",
-                PhoneNumber = "+421 900 542 564"
-            });
-            /*
             this.customers = Client.SendGetRequest<List<Customer>>(this.httpClient, "customers");
-            */
-            return this.customers;
         }
         public bool Process(string name, string address, string phoneNumber)
         {
@@ -68,12 +42,11 @@ namespace Warehouse.Classes.Controllers
             this.Customer.PhoneNumber = phoneNumber;
             if (!this.Customers.Contains(this.Customer))
             {
-                //Client.SendPostRequest<Customer>(this.httpClient, "customers", this.Customer);
-                this.Customers.Add(this.Customer);
+                Client.SendPostRequest<Customer>(this.httpClient, "customers", this.Customer);
             }
             else
             {
-                //Client.SendPutRequest<Customer>(this.httpClient, $"customers/{this.Customer.Id}", this.Customer);
+                Client.SendPutRequest<Customer>(this.httpClient, $"customers", this.Customer);
             }
             return true;
         }
@@ -81,8 +54,7 @@ namespace Warehouse.Classes.Controllers
         {
             if (customer != null)
             {
-                this.Customers.Remove(customer);
-                //Client.SendDeleteRequest<Customer>(this.httpClient, $"customers/{this.Customer.Id}");
+                Client.SendDeleteRequest<Customer>(this.httpClient, $"customers/{customer.Id}");
             }
         }
     }

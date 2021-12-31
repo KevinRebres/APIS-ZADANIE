@@ -17,35 +17,9 @@ namespace Warehouse.Classes.Controllers
         {
             this.httpClient = httpClient;
         }
-        public List<Product> Get()
+        public void Load()
         {
-            this.products = new List<Product>();
-
-            this.products.Add(new Product
-            {
-                Id = 1,
-                Name = "Exhaust",
-                Quantity = 25,
-                Price = 159.99
-            });
-            this.products.Add(new Product
-            {
-                Id = 2,
-                Name = "Gearbox",
-                Quantity = 10,
-                Price = 379.99
-            });
-            this.products.Add(new Product
-            {
-                Id = 3,
-                Name = "Diesel Engine",
-                Quantity = 3,
-                Price = 809.99
-            });
-            /*
             this.products = Client.SendGetRequest<List<Product>>(this.httpClient, "products");
-            */
-            return this.products;
         }
         public bool Process(string name, string quantity, string price)
         {
@@ -77,12 +51,11 @@ namespace Warehouse.Classes.Controllers
             this.Product.Price = Convert.ToDouble(price);
             if (!this.Products.Contains(this.Product))
             {
-                //Client.SendPostRequest<Product>(this.httpClient, "products", this.Product);
-                this.Products.Add(this.Product);
+                Client.SendPostRequest<Product>(this.httpClient, "products", this.Product);
             }
             else
             {
-                //Client.SendPutRequest<Product>(this.httpClient, $"products/{this.Product.Id}", this.Product);
+                Client.SendPutRequest<Product>(this.httpClient, $"products", this.Product);
             }
             return true;
         }
@@ -90,8 +63,7 @@ namespace Warehouse.Classes.Controllers
         {
             if (product != null)
             {
-                this.Products.Remove(product);
-                //Client.SendDeleteRequest<Product>(this.httpClient, $"products/{this.Product.Id}");
+                Client.SendDeleteRequest<Product>(this.httpClient, $"products/{product.Id}");
             }
         }
     }

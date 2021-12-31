@@ -15,37 +15,11 @@ namespace Warehouse.Classes.Controllers
         public OrderController() { }
         public OrderController(HttpClient httpClient)
         {
-            this.httpClient = new HttpClient();
+            this.httpClient = httpClient;
         }
-        public List<Order> Get()
+        public void Load()
         {
-            this.orders = new List<Order>();
-
-            this.orders.Add(new Order
-            {
-                Id = 1,
-                Quantity = 5,
-                CustomerId = 1,
-                ProductId = 1,
-            });
-            this.orders.Add(new Order
-            {
-                Id = 2,
-                Quantity = 9,
-                CustomerId = 3,
-                ProductId = 2,
-            });
-            this.orders.Add(new Order
-            {
-                Id = 3,
-                Quantity = 13,
-                CustomerId = 3,
-                ProductId = 3,
-            });
-            /*
             this.orders = Client.SendGetRequest<List<Order>>(this.httpClient, "orders");
-            */
-            return this.orders;
         }
         public bool Process(string quantity, Customer customer, Product product)
         {
@@ -77,12 +51,11 @@ namespace Warehouse.Classes.Controllers
             this.Order.ProductId = product.Id;
             if (!this.Orders.Contains(this.Order))
             {
-                //Client.SendPostRequest<Order>(this.httpClient, "orders", this.Order);
-                this.Orders.Add(this.Order);
+                Client.SendPostRequest<Order>(this.httpClient, "orders", this.Order);
             }
             else
             {
-                //Client.SendPutRequest<Order>(this.httpClient, $"orders/{this.Order.Id}", this.Order);
+                Client.SendPutRequest<Order>(this.httpClient, $"orders", this.Order);
             }
             return true;
         }
@@ -90,8 +63,7 @@ namespace Warehouse.Classes.Controllers
         {
             if (order != null)
             {
-                this.Orders.Remove(order);
-                //Client.SendDeleteRequest<Order>(this.httpClient, $"orders/{this.Order.Id}");
+                Client.SendDeleteRequest<Order>(this.httpClient, $"orders/{order.Id}");
             }
         }
     }

@@ -22,9 +22,6 @@ namespace Warehouse
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
             this.LockAllControls();
-            this.backend.CustomerController.Get();
-            this.backend.ProductController.Get();
-            this.backend.OrderController.Get();
             this.backend.UpdateUIEventHandler.Invoke(null, null);
             this.UnlockAllControls();
         }
@@ -109,6 +106,9 @@ namespace Warehouse
         }
         private void UpdateDataGrid(object sender, EventArgs e)
         {
+            this.backend.CustomerController.Load();
+            this.backend.ProductController.Load();
+            this.backend.OrderController.Load();
             this.OrderDataGrid.ItemsSource = null;
             this.OrderDataGrid.ItemsSource = this.backend.OrderController.Orders;
             this.ProductDataGrid.ItemsSource = null;

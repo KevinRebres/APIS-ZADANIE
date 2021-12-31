@@ -50,6 +50,7 @@ namespace Warehouse
         }
         private void UpdateDataGrid()
         {
+            this.backend.CustomerController.Load();
             this.CustomerDataGrid.ItemsSource = null;
             this.CustomerDataGrid.ItemsSource = this.backend.CustomerController.Customers;
         }

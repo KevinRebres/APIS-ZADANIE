@@ -18,7 +18,7 @@ namespace Warehouse.Classes
         public Backend()
         {
             this.httpClient = new HttpClient();
-            this.httpClient.BaseAddress = new Uri("https://cvicenie.herokuapp.com/");
+            this.httpClient.BaseAddress = new Uri("https://apis-zadanie.herokuapp.com/");
             this.httpClient.DefaultRequestHeaders.Accept.Clear();
             this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             this.customerController = new CustomerController(this.httpClient);
