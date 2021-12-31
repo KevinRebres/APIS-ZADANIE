@@ -1,6 +1,6 @@
 # APIS-ZADANIE
 
 ## Členovia: 
-- Samuel Titko - Klientská aplikácia
-- Kevin Rebreš - Databáza
-- Tomáš Miščík - Server 
+- Samuel Titko - Client application (Warehouse)
+- Tomáš Miščík - Server application (Server)
+- Kevin Rebreš - Database tables (Database)
