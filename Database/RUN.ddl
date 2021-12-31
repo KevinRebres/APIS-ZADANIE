@@ -62,10 +62,10 @@ END;
 | delimiter ;
 
 INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("Volkswagen", "Bratislava 811 03", "+421950828789");
-INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("LandRover", "Žilina 010 01", "+421908569741");
+INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("LandRover", "Zilina 010 01", "+421908569741");
 INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("Peugeot", "Trnava 917 01", "+421918841722");
 INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("Jaguar", "Michalovce 071 01", "+421908825589");
-INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("Audi", "Košice 040 01", "+421908068489");
+INSERT INTO Customers (Name, Address, PhoneNumber) VALUES ("Audi", "Kosice 040 01", "+421908068489");
 
 INSERT INTO Products (Name, Quantity, Price) VALUES ("Diesel Engine", 17, 999.99);
 INSERT INTO Products (Name, Quantity, Price) VALUES ("Manual Gearbox", 25, 559.99);
