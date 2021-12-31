@@ -1,4 +1,4 @@
-# Warehouse Server 
+# Warehouse Server Application
 
 Author: Tomáš Miščík
 
