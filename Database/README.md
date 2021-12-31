@@ -1,7 +1,6 @@
-# Warehouse database
+# Warehouse Database
 
-First name: Kevin
-Last name: Rebreš
+Author: Kevin Rebreš
 
 ```py
 host="147.232.40.14",
