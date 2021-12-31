@@ -1,6 +1,6 @@
 # APIS-ZADANIE
 
 ## Members: 
-- Samuel Titko - Client application (Warehouse)
-- Tomáš Miščík - Server application (Server)
-- Kevin Rebreš - Database tables (Database)
+- Samuel Titko - Warehouse Client Application (Warehouse)
+- Tomáš Miščík - Warehouse Server Application (Server)
+- Kevin Rebreš - Warehouse Database Tables (Database)
